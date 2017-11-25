@@ -4,7 +4,9 @@
       "authLevel": "function",
       "type": "httpTrigger",
       "direction": "in",
-      "name": "req"
+      "name": "req",
+      "route": "charge",
+      "methods": ["post"]
     },
     {
       "type": "http",
