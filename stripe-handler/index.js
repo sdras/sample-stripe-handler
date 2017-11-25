@@ -1,5 +1,4 @@
-import stripePackage from 'stripe';
-const stripe = stripePackage('sk_test_js5LRkmS7OsYHtVc7XYvK9OB');
+var stripe = require('stripe')('sk_test_js5LRkmS7OsYHtVc7XYvK9OB');
 
 module.exports = function(context, req) {
   context.log('we starting to get down');
