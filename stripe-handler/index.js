@@ -1,7 +1,7 @@
 var stripe = require('stripe')('sk_test_js5LRkmS7OsYHtVc7XYvK9OB');
 
 module.exports = function(context, req) {
-  context.log('we starting to get down');
+  context.log('starting to get down');
 
   //if we have a request body, an email, and a token, let's get started
   if (req.body && req.body.stripeEmail && req.body.stripeToken) {
@@ -11,6 +11,7 @@ module.exports = function(context, req) {
         source: req.body.stripeToken
       })
       .then(customer =>
+        context.log('starting the stripe charges');
         stripe.charges.create({
           amount,
           description: 'Sample Charge',
@@ -19,12 +20,17 @@ module.exports = function(context, req) {
         })
       )
       .then(charge => {
+        context.log('finished the stripe charges');
         context.res = {
           // status: 200
           body: 'This has been completed'
         };
         context.done();
-      });
+      })
+      .catch(err => {
+        context.log(err);
+        context.done();
+      })
   } else {
     context.res = {
       status: 400,
