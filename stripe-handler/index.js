@@ -37,6 +37,7 @@ module.exports = function(context, req) {
         context.done();
       });
   } else {
+    context.log(req.body);
     context.res = {
       status: 400,
       body: "We're missing something"
