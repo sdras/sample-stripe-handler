@@ -4,7 +4,12 @@ module.exports = function(context, req) {
   context.log('starting to get down');
 
   //if we have a request body, an email, and a token, let's get started
-  if (req.body && req.body.stripeEmail && req.body.stripeToken) {
+  if (
+    req.body &&
+    req.body.stripeEmail &&
+    req.body.stripeToken &&
+    req.body.stripeAmt
+  ) {
     stripe.customers
       .create({
         email: req.body.stripeEmail,
@@ -13,7 +18,7 @@ module.exports = function(context, req) {
       .then(customer => {
         context.log('starting the stripe charges');
         stripe.charges.create({
-          amount,
+          amount: req.body.stripeAmt,
           description: 'Sample Charge',
           currency: 'usd',
           customer: customer.id
