@@ -10,15 +10,15 @@ module.exports = function(context, req) {
         email: req.body.stripeEmail,
         source: req.body.stripeToken
       })
-      .then(customer =>
+      .then(customer => {
         context.log('starting the stripe charges');
         stripe.charges.create({
           amount,
           description: 'Sample Charge',
           currency: 'usd',
           customer: customer.id
-        })
-      )
+        });
+      })
       .then(charge => {
         context.log('finished the stripe charges');
         context.res = {
@@ -30,7 +30,7 @@ module.exports = function(context, req) {
       .catch(err => {
         context.log(err);
         context.done();
-      })
+      });
   } else {
     context.res = {
       status: 400,
