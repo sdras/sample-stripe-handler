@@ -4,7 +4,7 @@ This small demo shows how to accept payments with stripe with Vue.js using an
 Azure Serverless Function. It's actually not that bad to set up!
 
 Live demo at
-[http://shoppity.azurewebsites.net/](http://shoppity.azurewebsites.net/)
+[https://shoppity.azurewebsites.net/](https://shoppity.azurewebsites.net/)
 
 Article series explaining how to set it up at at
 [https://css-tricks.com/](https://css-tricks.com/) (this is a two part series)
