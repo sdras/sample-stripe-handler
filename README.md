@@ -6,8 +6,8 @@ Azure Serverless Function. It's actually not that bad to set up!
 Live demo at
 [https://shoppity.azurewebsites.net/](https://shoppity.azurewebsites.net/)
 
-Article series explaining how to set it up at at
-[https://css-tricks.com/](https://css-tricks.com/) (this is a two part series)
+Articles explaining the demo will be available soon at
+[https://css-tricks.com/](https://css-tricks.com/)
 
 The shop code is all open source as well, which demos how to set it up with
 Vue.js. Available at this repo:
